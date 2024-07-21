@@ -11,7 +11,6 @@ toolLocation {
             IMAGE_TAG = "${RELEASE}-${BUILD_NUMBER}"
 	    JENKINS_API_TOKEN = credentials("JENKINS_API_TOKEN")
     }
-    stages{
         stage("Cleanup Workspace"){
                 steps {
                 cleanWs()
@@ -108,5 +107,4 @@ toolLocation {
             emailext body: '''${SCRIPT, template="groovy-html.template"}''', 
                      subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - Successful", 
                      mimeType: 'text/html',to: "ashfaque.s510@gmail.com"
-      }      
-   }
+      }
